@@ -73,14 +73,12 @@ namespace RoadReport
             Database db = doc.Database;
             Editor ed = doc.Editor;
 
-            // Get the entity to which we'll zoom
             PromptEntityOptions peo = new PromptEntityOptions("\nSelect an entity:");
             PromptEntityResult per = ed.GetEntity(peo);
 
             if (per.Status != PromptStatus.OK)
                 return;
 
-            // Extract its extents
             Extents3d ext;
             
             using (Transaction tr = db.TransactionManager.StartTransaction())
@@ -91,10 +89,6 @@ namespace RoadReport
             }
 
             ext.TransformBy(ed.CurrentUserCoordinateSystem.Inverse());
-
-            // Call our helper function
-            // [Change this to ZoomWin2 or WoomWin3 to
-            // use different zoom techniques]
 
             ZoomWin(ed, ext.MinPoint, ext.MaxPoint);
         }
@@ -111,7 +105,6 @@ namespace RoadReport
             view.Width = max2d.X - min2d.X;
             ed.SetCurrentView(view);
         }
-
 
     }
 }

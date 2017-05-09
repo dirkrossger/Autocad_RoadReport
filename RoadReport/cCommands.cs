@@ -1,16 +1,26 @@
 ﻿using System;
+using System.Collections.Generic;
+
 using Autodesk.AutoCAD.ApplicationServices;
 using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using Autodesk.AutoCAD.Geometry;
-using System.Collections.Generic;
 //using Autodesk.AutoCAD.Interop;
 
 namespace RoadReport
 {
     public class cCommands
     {
+        private Form1 _Form1;
+
+        [CommandMethod("xx")]
+        public void Start()
+        {
+            _Form1 = new Form1();
+            System.Windows.Forms.DialogResult result = _Form1.ShowDialog();
+        }
+
         [CommandMethod("xLen")]
         public void GetLength()
         {
@@ -60,14 +70,12 @@ namespace RoadReport
         }
 
         [CommandMethod("xReport")]
-        public void GetReport()
+        public static void GetReport()
         {
-
             Database db = HostApplicationServices.WorkingDatabase;
 
             using (Transaction tr = db.TransactionManager.StartTransaction())
             {
-
                 SelectionSet Sset = cSelection.GetSelection();
                 List<cSelection> Report = mReport.GetReportList(Sset);
 
@@ -75,14 +83,12 @@ namespace RoadReport
                 {
                     mReport.ShowReport(Report);
                 }
-                catch { }
+                catch
+                {
+                }
 
                 tr.Commit();
             }
-
-
-
-
         }
 
         [CommandMethod("ZE")]

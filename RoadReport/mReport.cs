@@ -39,6 +39,31 @@ namespace RoadReport
             return null;
         }
 
+        public static List<cSelection> GetReport()
+        {
+            Database db = HostApplicationServices.WorkingDatabase;
+
+            using (Transaction tr = db.TransactionManager.StartTransaction())
+            {
+
+                SelectionSet Sset = cSelection.GetSelection();
+                List<cSelection> Report = mReport.GetReportList(Sset);
+
+                try
+                {
+                    //mReport.ShowReport(Report);
+                    return Report;
+                }
+                catch
+                {
+                }
+
+                tr.Commit();
+            }
+
+            return null;
+        }
+
         public static void ShowReport(List<cSelection> report)
         {
             Document acadDoc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
@@ -50,5 +75,7 @@ namespace RoadReport
                       i, report[i].Layer, report[i].Type, report[i].Area, report[i].Length);
             }
         }
+
+
     }
 }
