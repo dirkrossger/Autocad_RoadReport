@@ -11,12 +11,6 @@ namespace RoadReport
 {
     class cSelection
     {
-        public string Type { get; set; }
-        public string Handle { get; set; }
-        public string Layer { get; set; }
-        public double Area { get; set; }
-        public double Length { get; set; }
-
         public static SelectionSet GetSelection()
         {
             Document acadDoc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;

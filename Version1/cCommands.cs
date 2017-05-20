@@ -77,7 +77,7 @@ namespace RoadReport
             using (Transaction tr = db.TransactionManager.StartTransaction())
             {
                 SelectionSet Sset = cSelection.GetSelection();
-                List<cSelection> Report = mReport.GetReportList(Sset);
+                List<Datas> Report = mReport.GetReportList(Sset);
 
                 try
                 {

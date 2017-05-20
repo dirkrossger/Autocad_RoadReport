@@ -31,15 +31,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="accoremgd">
-      <HintPath>..\..\..\Symetri\Acad.net.library\2014\accoremgd.dll</HintPath>
+      <HintPath>..\..\..\Dropbox\Symetri\Acad.net.library\2017\accoremgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="acdbmgd">
-      <HintPath>..\..\..\Symetri\Acad.net.library\2014\acdbmgd.dll</HintPath>
+      <HintPath>..\..\..\Dropbox\Symetri\Acad.net.library\2017\acdbmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="acmgd">
-      <HintPath>..\..\..\Symetri\Acad.net.library\2014\acmgd.dll</HintPath>
+      <HintPath>..\..\..\Dropbox\Symetri\Acad.net.library\2017\acmgd.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="cCommands.cs" />
     <Compile Include="cSelection.cs" />
+    <Compile Include="Datas.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

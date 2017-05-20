@@ -36,7 +36,7 @@ namespace RoadReport
             dataSet = null;
             dataGrid1.DataSource = null;
 
-            List<cSelection> Report = mReport.GetReport();
+            List<Datas> Report = mReport.GetReport();
             if (Report == null)
                 ShowStripText("No valid Objects found.");
             else

@@ -11,9 +11,9 @@ namespace RoadReport
 {
     internal class mReport
     {
-        public static List<cSelection> GetReportList(SelectionSet ss)
+        public static List<Datas> GetReportList(SelectionSet ss)
         {
-            List<cSelection> result = new List<cSelection>();
+            List<Datas> result = new List<Datas>();
 
             try
             {
@@ -26,7 +26,7 @@ namespace RoadReport
                         double area = mArea.GetArea(ent);
                         double length = mLength.GetLength(ent as Curve);
 
-                        result.Add(new cSelection { Handle = ent.Handle.ToString(), Type = ent.GetType().Name, Layer = ent.Layer, Area = area, Length = length });
+                        result.Add(new Datas { Handle = ent.Handle.ToString(), Type = ent.GetType().Name, Layer = ent.Layer, Area = area, Length = length });
                     }
                     tr.Commit();
 
@@ -39,7 +39,7 @@ namespace RoadReport
             return null;
         }
 
-        public static List<cSelection> GetReport()
+        public static List<Datas> GetReport()
         {
             Database db = HostApplicationServices.WorkingDatabase;
 
@@ -47,7 +47,7 @@ namespace RoadReport
             {
 
                 SelectionSet Sset = cSelection.GetSelection();
-                List<cSelection> Report = mReport.GetReportList(Sset);
+                List<Datas> Report = mReport.GetReportList(Sset);
 
                 try
                 {
@@ -64,7 +64,7 @@ namespace RoadReport
             return null;
         }
 
-        public static void ShowReport(List<cSelection> report)
+        public static void ShowReport(List<Datas> report)
         {
             Document acadDoc = Autodesk.AutoCAD.ApplicationServices.Application.DocumentManager.MdiActiveDocument;
             Editor ed = acadDoc.Editor;
