@@ -11,7 +11,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <ToolBar Grid.Row="0">
-            <Button x:Name="Refresh" Content="Aktualisieren" Click="Refresh_Click"/>
+            <Button x:Name="Refresh" Content="Aktualisieren" Click="Refresh_Click" BorderBrush="#FFCFBE84"/>
         </ToolBar>
         
         <DataGrid Grid.Row="1" 
